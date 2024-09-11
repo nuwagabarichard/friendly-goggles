@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Object Demonstration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; the
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: red;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        footer {
+            background-color: skyblue;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 id="main-title">Document Object Demonstration</h1>
+    <p class="description">Explore the features and methods of the <code>document</code> object.</p>
+</header>
+
+<nav>
+    <ul id="nav-list">
+        <li><a href="#" class="nav-link">Home</a></li>
+        <li><a href="#" class="nav-link">About</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="content">
+    <h2 id="section-title">Content Section</h2>
+    <p id="content-description">Click the button below to dynamically add content.</p>
+    <button id="add-content">Add Content</button>
+    <div id="dynamic-content"></div>
+</section>
+
+<section id="form-section">
+    <h2>Form Example</h2>
+    <form id="example-form">
+        <label for="input-text">Enter text:</label>
+        <input type="text" id="input-text" name="input-text">
+        <input type="submit" value="Submit">
+    </form>
+    <p id="form-feedback"></p>
+</section>
+
+<section id="dom-manipulation">
+    <h2>DOM Manipulation</h2>
+    <button id="manipulate-dom">Manipulate DOM</button>
+    <div id="manipulation-result"></div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Example Website</p>
+    <p>Last modified: <span id="last-modified"></span></p>
+</footer>
+
+<script>
+    // Document Properties Examples
+    document.title = "Document Object Model Example";
+    document.getElementById('main-title').textContent = document.title;
+
+    document.getElementById('last-modified').textContent = document.lastModified;
+
+    console.log("URL: " + document.URL);
+    console.log("Domain: " + document.domain);
+    console.log("Referrer: " + document.referrer);
+    console.log("Charset: " + document.characterSet);
+    console.log("Content Type: " + document.contentType);
+    console.log("Ready State: " + document.readyState);
+
+    // Adding Event Listeners to Elements
+    document.getElementById('add-content').addEventListener('click', function() {
+        const dynamicContent = document.createElement('p');
+        dynamicContent.textContent = "This content was added dynamically!";
+        document.getElementById('dynamic-content').appendChild(dynamicContent);
+    });
+
+    document.getElementById('example-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const inputText = document.getElementById('input-text').value;
+        document.getElementById('form-feedback').textContent = `You entered: ${inputText}`;
+        document.forms[0].reset();
+    });
+
+    document.getElementById('manipulate-dom').addEventListener('click', function() {
+        const newElement = document.createElement('div');
+        newElement.textContent = "This is a dynamically added element.";
+        document.getElementById('manipulation-result').appendChild(newElement);
+    });
+
+    // Querying DOM Elements
+    const navLinks = document.getElementsByClassName('nav-link');
+    for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('mouseover', function() {
+            this.style.color = 'yellow';
+        });
+        navLinks[i].addEventListener('mouseout', function() {
+            this.style.color = 'white';
+        });
+    }
+
+    // Add a new item to the navigation
+    const newNavItem = document.createElement('li');
+    const newNavLink = document.createElement('a');
+    newNavLink.href = "#";
+    newNavLink.textContent = "Blog";
+    newNavLink.className = "nav-link";
+    newNavItem.appendChild(newNavLink);
+    document.getElementById('nav-list').appendChild(newNavItem);
+
+    // Manipulating Attributes
+    document.getElementById('section-title').classList.add('highlight');
+    document.getElementById('section-title').style.color = 'blue';
+    document.getElementById('section-title').style.fontSize = '24px';
+
+    // Using Document Properties and Methods
+    const newAttr = document.createAttribute('data-example');
+    newAttr.value = 'document-attr-example';
+    document.getElementById('section-title').setAttributeNode(newAttr);
+
+    console.log("document.forms: ", document.forms);
+    console.log("document.images: ", document.images);
+    console.log("document.links: ", document.links);
+    console.log("document.scripts: ", document.scripts);
+    console.log("document.embeds: ", document.embeds);
+    console.log("document.activeElement: ", document.activeElement);
+
+    // Visibility and Focus Events
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            console.log("Document is hidden");
+        } else {
+            console.log("Document is visible");
+        }
+    });
+
+    document.addEventListener('focus', function() {
+        console.log("Document has focus");
+    });
+
+    document.addEventListener('blur', function() {
+        console.log("Document lost focus");
+    });
+
+    // Keyboard and Mouse Events
+    document.addEventListener('keydown', function(event) {
+        console.log(`Key down: ${event.key}`);
+    });
+
+    document.addEventListener('keyup', function(event) {
+        console.log(`Key up: ${event.key}`);
+    });
+
+    document.addEventListener('click', function(event) {
+        console.log(`Mouse click at coordinates (${event.clientX}, ${event.clientY})`);
+    });
+
+    document.addEventListener('dblclick', function(event) {
+        console.log(`Mouse double click at coordinates (${event.clientX}, ${event.clientY})`);
+    });
+
+    document.addEventListener('mousemove', function(event) {
+        console.log(`Mouse move at coordinates (${event.clientX}, ${event.clientY})`);
+    });
+
+    document.addEventListener('resize', function() {
+        console.log("Window resized");
+    });
+
+    // Miscellaneous Features
+    if (document.queryCommandSupported('copy')) {
+        console.log("The 'copy' command is supported by the browser.");
+    }
+
+    document.execCommand('copy'); // Example to invoke the 'copy' command
+
+    // DOM Manipulation
+    const newComment = document.createComment("This is a comment node");
+    document.body.appendChild(newComment);
+
+    const fragment = document.createDocumentFragment();
+    const fragmentDiv = document.createElement('div');
+    fragmentDiv.textContent = "This is a fragment div";
+    fragment.appendChild(fragmentDiv);
+    document.body.appendChild(fragment);
+
+    const oldNode = document.getElementById('content-description');
+    const newNode = document.createElement('p');
+    newNode.textContent = "This is a replaced paragraph.";
+    document.getElementById('content').replaceChild(newNode, oldNode);
+
+    const clonedNode = document.getElementById('main-title').cloneNode(true);
+    document.body.appendChild(clonedNode);
+
+    const newScript = document.createElement('script');
+    newScript.text = "console.log('Script added dynamically');";
+    document.body.appendChild(newScript);
+
+    const hiddenElement = document.createElement('div');
+    hiddenElement.textContent = "You cannot see this";
+    hiddenElement.className = 'hidden';
+    document.body.appendRd inChild(hiddenElement);
+    
+    console.log("Document body: ", document.body);
+    console.log("Document head: ", document.head);
+    console.log("Document documentElement: ", document.documentElement);
+</script>
+
+</body>
+</html>
