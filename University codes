@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <title>makerere uninversity</title>
+    <style>
+    nav ul{list-style-type:none;margin:0px;padding:20px;background-color:grey;}
+    nav ul li{display:block;float:left;}
+    nav ul li a{color:white;height:100px;padding:2px;text-decoration:none;}
+    nav ul li a hover{background-color:purple;}g
+    form{max-width:300px;margin:auto;}
+    input[type="search"]{width:70%;height:30px;padding:10px;border:1px solid black;border-radius:5px;}
+    button[type="submit"]{width:30%;height:30px;background-color:black;color:white;border:g;border-radius:3px;cursor:pointer;}
+    table{border-collapse:collapse;}th,td{border:1px solid black;padding:5px;text-align:center;}
+    </style>
+</head>
+<body>
+  <p>
+    <marquee>MAKERERE UNIVERSITY</marquee>
+    <h3>OUR TIMELY TIMETABLE</h3>
+    <table>
+      <tr>
+     <th>MONDAYS</th>
+          <th>TUESDAYS</th>
+          <th>WEDNESDAYS</th>
+          <th>THURSDAYS</th>
+          <th>FRIDAYS</th>
+          </tr>
+          <tr>
+            <th>7:30-8:00</th>
+            <th>8:00-9:00</th>
+            <th>9:00-10:00</th>
+            <th>10:00-11:00</th>
+            <th>11:00-2:00</th>
+            </tr>
+            <tr>
+              <td>GP lecture</td>
+              <td>English lessons</td>
+              <td>AI technology</td>
+              <td>Web development</td>
+              <td>Critical assesments</td>
+             </tr>
+             <tr>
+               <td>computer technology</td>
+               <td>software engineering</td>
+               <td>cyber security</td>
+               <td>windows updaters</td>
+               <td>Hacker xs</td>
+              </tr>
+           
+              
+            </table>
+            <h3>This is one of the most famous universities in Uganda that give quality education to your child trust me</h3>
+    </p>
+  <nav align="center">
+    <nav>
+      <ul>
+        <button type="submikt"><li><a href="#">HOME</a></li></button>
+        <button type="submit"><li><a
+        href="#">ABOUT US</a></a></li></button>
+        <button type="submit"><li><a href="#">ADMISSIONS</a></li></button>
+        <button type="submit"><li><a
+        href="#">ACADEMICS</a></li></button>
+        <button type="submit"><li><a href="#">CONTACT</a></li></button>
+        </ul>
+        </nav>
+        
+        
+        <main>
+          <section><h1 align="center"><em><u><marquee>MAKERERE UNIVERSITY</marquee></u></em></h1>
+          <p><b>"your center of excellence"</b></em> </p>
+          <form>
+            <input type="search"
+            place holder="search...">
+            <button type="submit">search</button></form>
+              </section>
+           </main>
+           
+        </body>
+      
+</html>
